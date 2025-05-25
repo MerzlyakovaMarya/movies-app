@@ -3,10 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/movies-app/',
+  base: '/movies-app/', // Обязательно с / в конце!
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    manifest: true
+    rollupOptions: {
+      input: '/index.html' // Явное указание точки входа
+    }
   }
 })
